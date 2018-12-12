@@ -1,0 +1,70 @@
+Para controlar los robots p3dx y p3at utilizando ros es necesario la instalacion de las librerias de ARIA asi como de una serie de configuraciones adicionales. Este instructivo asume que tienes instalado ROS y que tu carpeta de trabajo se llama catkin_ws.
+
+1. Instalar los deb que se encuentran en esta actividad.
+2. cd ~/catkin_ws/src
+3. git clone https://github.com/amor-ros-pkg/rosaria.git
+4. cd ~/catkin_ws
+5. catkin_make
+6. source ~/catkin_ws/devel/setup.bash
+
+Una vez esta instalado tienen dos opciones: abrir el simulador con opensim o conectar al robot atraves del puerto serial.
+Si conectan el robot al puerto serial deben asegurarse de darle permiso de lectura al puerto usb generalmente ttyUSB0.
+**Pueden verificar el puerto usb al conectarlo a la computadora y ejecutar el comando dmesg**
+sudo chmod 777 /dev/ttyUSB0
+
+Pueden ver la informacion de los sonares utilizando el programa rviz
+1. rosrun rviz rviz
+2. En otra consola ejecutar:
+rosrun tf static_transform_publisher 0.0 0.0 0.0 0.0 0.0 0.0 map sonar 100
+3. ejecutar en otra consola
+rosrun tf static_transform_publisher 0.0 0.0 0.0 0.0 0.0 0.0 map odom 100
+
+Para ejecutar rosaria
+roscore
+y en otra consola
+rosrun rosaria RosAria
+
+
+********************************************************************
+
+4, Instalar Simulador.
+4.1 roscd
+4.2 cd ../src
+4.1 git clone https://github.com/iolyp/ardrone_simulator_gazebo7
+4.2 cd ..
+4.3 catkin_make
+4.4 source devel/setup.bash
+
+#Ejecucion.
+Levantar la simulacion 
+0. roscore
+1. roslaunch cvg_sim_gazebo ardrone_testworld.launch
+2. rosrun ardrone_autonomy ardrone_driver
+
+#Topicos de prueba
+rostopic pub ardrone/takeoff std_msgs/Empty # Elevate
+rostopic pub ardrone/land std_msgs/Empty # aterriza
+rostopic pub -1 /cmd_vel geometry_msgs/Twist -- '[0.1,0.0,0.0]' '[0,0,0]' # avanza al frente
+rostopic pub -1 /cmd_vel geometry_msgs/Twist -- '[0.0,0.0,0.0]' '[0,0,0]' # detente
+rostopic pub -1 /cmd_vel geometry_msgs/Twist -- '[0.0,0.1,0.0]' '[0,0,0]' # derecha
+rostopic pub -1 /cmd_vel geometry_msgs/Twist -- '[0.0,0.0,0.1]' '[0,0,0]' # arriba
+
+# Con el comando rosrun rviz rviz deben poder ver los sensores del robot
+Con esto ya deben el entorno listo
+
+
+Creando un repositorio:
+1. roscd
+2. cd ../src
+3. catkin_create_pkg drone_controller rospy
+4. roscd drone_controller
+5. Creando el archivo
+6. roscd 
+7. cd ..
+8. catkin_make
+9. source devel/setup.zsh
+10. Inician la simulacion y el driver
+11. rostopic pub ardrone/takeoff std_msgs/Empty
+12. rosrun drone_controller takeoff.py
+*******************************************************************
+

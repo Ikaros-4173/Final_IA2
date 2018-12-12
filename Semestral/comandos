@@ -1,0 +1,551 @@
+    1  sudo apt-get install terminator
+    2  cd Des*
+    3  ls
+    4  sudo dpkg -i goo*
+    5  cd
+    6  sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+    7  sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
+    8  sudo apt-get update
+    9  sudo apt-get install ros-kinetic-desktop-full
+   10  rosrun ardrone_autonomy ardrone_driver
+   11  sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+   12  sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA11
+   13  sudo apt-get update
+   14  sudo apt-get install ros-kinetic-desktop-full
+   15  sudo rosdep init
+   16  rosdep update
+   17  echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+   18  source ~/.bashrc
+   19  sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential
+   20  mkdir -p ~/catkin_ws/src
+   21  cd ~/catkin_ws/
+   22  catkin_make
+   23  source devel/setup.bash
+   24  echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+   25  sudo apt-get install ros-kinetic-ardrone-autonomy
+   26  roscd
+   27  cd ../src
+   28  git clone https://github.com/iolyp/ardrone_simulator_gazebo7
+   29  cd ..
+   30  catkin_make
+   31  source devel/setup.bash
+   32  roscore
+   33  roslaunch cvg_sim_gazebo ardrone_testworld.launch
+   34  rostopic pub ardrone/takeoff std_msgs/Empty
+   35  rostopic pub ardrone/land std_msgs/Empty 
+   36  rostopic pub -1 /cmd_vel geometry_msgs/Twist -- '[0.1,0.0,0.0]' '[0,0,0]' 
+   37  rostopic pub ardrone/takeoff std_msgs/Empty
+   38  rostopic pub ardrone/takeoff std_msgs/Empty 
+   39  rostopic pub -1 /cmd_vel geometry_msgs/Twist -- '[0.0,0.0,0.1]' '[0,0,0]' 
+   40  rostopic pub -1 /cmd_vel geometry_msgs/Twist -- '[0.0,0.0,0.0]' '[0,0,0]'
+   41  rostopic pub ardrone/land std_msgs/Empty # aterriza
+   42  rosrun rviz rviz 
+   43  wget http://archive.getdeb.net/ubuntu/pool/apps/u/ubuntu-tweak/ubuntu-tweak_0.8.7-1~getdeb2~xenial_all.deb
+   44  sudo apt-get install gnome-shell ubuntu-gnome-desktop
+   45  reboot
+   46  history
+   47  clear
+   48  touchpad-indicator -c
+   49  sudo add-apt-repository ppa:atareao/atareao
+   50  sudo apt-get update
+   51  sudo apt-get install touchpad-indicator
+   52  touchpad-indicator -c
+   53  pip install -U scikit-learn
+   54  sudo apt install python-pip
+   55  pip install -U scikit-learn
+   56  sudo modprobe -r psmouse
+   57  sudo modprobe psmouse proto=imps
+   58  sudo add-apt ppa-repositorio: atareao / atareao
+   59  sudo kate /etc/X11/xorg.conf.d/10-synaptics.conf
+   60  xinput
+   61  xinput --list --long 13
+   62  xinput test 13
+   63  clear
+   64  xinput
+   65  xinput test 12
+   66  xinput --list --long 12
+   67  man xinput
+   68  xinput list-props 12
+   69  sudo apt-get install unity-tweak-tool
+   70  sudo apt-get install gnome-tweak-tool
+   71  sudo apt-get install xserver-xorg-input-synapticscle
+   72  clear
+   73  xinput
+   74  xinput test 12
+   75  xinput --list --long 12
+   76  sudo add-apt-repository ppa:upubuntu-com/web
+   77  sudo apt-get update
+   78  sudo apt-get install xampp
+   79  clear
+   80  cd Des*
+   81  ls
+   82  chmod +x xampp-linux-x64-7.2.5-0-installer.run﻿
+   83  chmod +x xampp-linux-x64-7.2.11-0-installer.run﻿
+   84  sudo ./xampp-linux-x64-7.2.11-0-installer.run﻿
+   85  clear
+   86  ls
+   87  chmod 777 xa*
+   88  ls
+   89  sudo ./xampp-linux-x64-7.2.11-0-installer.run﻿
+   90  sudo xampp-linux-x64-7.2.11-0-installer.run﻿
+   91  sudo sh ./xampp-linux-x64-7.2.11-0-installer.run﻿
+   92  sudo sh./xampp-linux-x64-7.2.11-0-installer.run﻿
+   93  sudo sh ./xampp-linux-x64-7.2.11-0-installer.run﻿
+   94  sudo su
+   95  $ sudo apt-get install phpmyadmin
+   96  sudo apt-get install phpmyadmin
+   97  sudo ./manager-linux-x64.run﻿
+   98  sudo sh ./manager-linux-x64.run﻿
+   99  sudo su
+  100  cd Des*
+  101  ls
+  102  sudo dpkg -i lib*
+  103  cd Des*
+  104  ls
+  105  sudo dpkg -i lib*
+  106  sudo dpkg -i mob*
+  107  . cd ~/catkin_ws/src
+  108  cd ~/catkin_ws/src
+  109  git clone https://github.com/amor-ros-pkg/rosaria.git
+  110  cd ~/catkin_ws
+  111  catkin_make
+  112  source ~/catkin_ws/devel/setup.bash
+  113  rosrun tf static_transform_publisher 0.0 0.0 0.0 0.0 0.0 0.0 map sonar 100
+  114  rosrun tf static_transform_publisher 0.0 0.0 0.0 0.0 0.0 0.0 map odom 100
+  115  rosrun rosaria RosAria
+  116  roscore
+  117  rosrun rviz rviz
+  118  roscore
+  119  rosparam set joy_node/dev "/dev/input/jsX"
+  120  rosrun joy joy_node
+  121  rosparam set joy_node/dev "/dev/input/js1"
+  122  rosrun joy joy_node
+  123  rosrun joy joy_node
+  124  roslaunch cvg_sim_gazebo ardrone_testworld.launch
+  125  rosrun ardrone_autonomy ardrone_driver
+  126  sudo apt-get install ros-kinetic-joy
+  127  ls /dev/input/
+  128  sudo jstest /dev/input/jsX
+  129  sudo jstest/dev/input/jsX
+  130  sudo jstest /dev/input/jsX
+  131  ls /dev/input/
+  132  sudo jstest /dev/input/jsX
+  133  sudo jstest /dev/input/js0
+  134  sudo jstest /dev/input/js1
+  135  sudo pip install ds4drv
+  136  sudo apt-get install ros-kinetic-joy ros-kinetic-joystick-driver
+  137  sudo apt-get install ros-kinetic-joy
+  138  ds4drv
+  139  ls /dev/input/
+  140  sudo jstest /dev/input/js1
+  141  ls /dev/input/
+  142  sudo jstest /dev/input/js1
+  143  rosparam set joy_node/dev "/dev/input/js1"
+  144  rosrun joy joy_node
+  145  ls
+  146  cd Doc*
+  147  ls
+  148  chmod 777 control.py
+  149  ls
+  150  python control.py
+  151  cmdvel
+  152  ros_graph
+  153  rosrun joy joy_node
+  154  roscore
+  155  rqtgraph
+  156  rqt_graph
+  157  roscore
+  158  rosrun rosaria rosaria
+  159  sudo apt-get install vlc
+  160  cd Des*
+  161  ls
+  162  sudo dpkg -i pul*
+  163  sudo apt-get install pulseaudio-equalizer
+  164  echo "deb http://ppa.launchpad.net/mikhailnov/pulseeffects/ubuntu bionic main" | sudo tee /etc/apt/sources.list.d/mikhailnov-ubuntu-pulseeffects-bionic.list
+  165  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys FE3AE55CF74041EAA3F0AD10D5B19A73A8ECB754 
+  166  sudo apt update
+  167  sudo apt install pulseeffects
+  168  apt-get -f install
+  169  su
+  170  sudo add-apt-repository ppa:lamedina/comoinstalarlinux
+  171  sudo apt update
+  172  sudo apt install pulseaudio-equalizer-ladspa swh-plugins
+  173  sudo apt-get -f install
+  174  sudo add-apt-repository ppa:lamedina/comoinstalarlinux
+  175  sudo apt update
+  176  sudo apt install pulseaudio-equalizer-ladspa swh-plugins
+  177  sudo halt
+  178  nautilus
+  179  chmod 777 pip
+  180  ls -l
+  181  vi pip
+  182  cd
+  183  exit
+  184  cd
+  185  pip install -U scikit-image
+  186  pip install --user scikit-image
+  187  su
+  188  sudo -s
+  189  cd ..
+  190  cd usr
+  191  cd bin
+  192  cat pip
+  193  vi pip
+  194  su -s
+  195  su 
+  196  sudo -s
+  197  cd ..
+  198  cd usr
+  199  cd bin
+  200  cat pip
+  201  ls
+  202  cat pip
+  203  pip install -U scikit-image
+  204  pip install -upgrade pip
+  205  pip install --upgrade pip
+  206  pip install -U scikit-image
+  207  python
+  208  clear
+  209  pip install numpy scipy scikit-learn
+  210  ls
+  211  cd ..
+  212  ls
+  213  cd ..
+  214  ls
+  215  cd usr
+  216  cd bin
+  217  ls
+  218  vi piṕ
+  219  cd
+  220  clear
+  221  ls
+  222  cd ..
+  223  ls
+  224  cd usr
+  225  ls
+  226  cd bin
+  227  ls
+  228  cat pip
+  229  vim pip
+  230  vi pip
+  231  cat pip
+  232  cd
+  233  clear
+  234  pip install numpy scipy scikit-learn
+  235  cd ..
+  236  cd usr
+  237  cd bin
+  238  cat pip
+  239  vi pip
+  240  cat pip
+  241  chmod 777 bin
+  242  chmod 777 pip
+  243  su
+  244  sudo -s
+  245  cd
+  246  clear
+  247  ls
+  248  git clone https://github.com/JaeDukSeo/Python_Basic_Image_Processing.git
+  249  sudo pip install scikit-video
+  250  sudo -H pip install scikit-video
+  251  sudo -H pip3 install scikit-video
+  252  pip3 install --upgrade pip
+  253  sudo apt install python3-pip
+  254  sudo -H pip3 install scikit-video
+  255  sudo pip install numpy scipy scikit-learn PI
+  256  sudo pip3 install numpy scipy scikit-learn PI
+  257  sudo pip install sk-video
+  258  pip install --user --upgrade pip
+  259  sudo apt-remove pip
+  260  sudo apt remove pip
+  261  python -m pip uninstall pip
+  262  sudo apt-get install pip
+  263  pip install scikit
+  264  python -m pip install
+  265  pip install --upgrade pip
+  266  sudo apt-get remove python-pip
+  267  pip install scikit
+  268  python -m pip install
+  269  sudo apt-get install pip
+  270  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+  271  python get-pip.py
+  272  python --user get-pip.py
+  273  python  get-pip.py
+  274  python get-pip.py --user
+  275  sudo pip install numpy scipy scikit-learn PIL  
+  276  sudo pip install sk-video  
+  277  sudo apt-get install pip
+  278  pip install numpy
+  279  sudo apt-get install python-pip
+  280  sudo pip install numpy scipy scikit-learn PIL  
+  281  python -m pip uninstall pip
+  282  pip install numpy
+  283  python -m pip uninstall pip
+  284  python3 -m pip uninstall pip
+  285  sudo pip install numpy scipy scikit-learn PIL  
+  286  pip install pillow
+  287  sudo pip install sk-video  
+  288  ls
+  289  clear
+  290  cd Doc*
+  291  ls
+  292  cd Lab 2
+  293  ls
+  294  cd Lab 2
+  295  ls
+  296  cd Lab2
+  297  ls
+  298  chmod 777 edge-py
+  299  chmod 777 edge.py
+  300  ls
+  301  python edge-py
+  302  python edge.py
+  303  cd Descargas
+  304  ls
+  305  sudo dpkg -i atom*
+  306  cd Documentos/Lab2
+  307  python edge.py
+  308  cd Des*
+  309  ls
+  310  sudo dpkg -i lib*
+  311  sudo dpkg -i mob*
+  312  cd ~/catkin_ws/src
+  313  git clone https://github.com/amor-ros-pkg/rosaria.git
+  314  cd ~/catkin_ws
+  315  catkin_make
+  316  source ~/catkin_ws/devel/setup.bash
+  317  catkin_make --force
+  318  shutdown
+  319  sudo apt-get install unity-tweak-tool
+  320  sudo apt install gnome-shell-extensions
+  321  nautilus
+  322  xinput
+  323  xinput list-props
+  324  xinput list-props <12>
+  325  xinput list-props 12
+  326  synclient
+  327  synclient VertEdgeScroll 1
+  328  synclient VertEdgeScroll =1
+  329  synclient VertEdgeScroll = 1
+  330  synclient VertEdgeScroll 
+  331  synclient
+  332  xinput list-props 12
+  333  ls
+  334  cd Doc*
+  335  ls
+  336  cd Sem*
+  337  ls
+  338  chmod 777 bas*
+  339  ls
+  340  cat basis_trainer.py
+  341  cat basic_trainer.py
+  342  python basic_trainer.py
+  343  rosrun rosaria RosAria
+  344  exit
+  345  roscore
+  346  rosrun rosaria RosAria
+  347  dmesg
+  348  sudo chmod 777 /dev/ttyUSB0
+  349  sudo chmod 777 /dev/ttyUSB3
+  350  sudo chmod 777 /dev/ttyUSB0
+  351  rosrun tf static_transform_publisher 0.0 0.0 0.0 0.0 0.0 0.0 map sonar 100
+  352  rosrun rosaria RosAria _port:=localhost:8101
+  353  rosrun rviz rviz
+  354  rosrun rosaria RosAria
+  355  cd Doc*
+  356  cd Sem*
+  357  py bas*
+  358  py basic_trainer.py
+  359  python basic_trainer.py
+  360  roscore
+  361  sudo add-apt-repository ppa:danielrichter2007/grub-customizer
+  362  sudo apt-get update
+  363  sudo apt-get install grub-customizer
+  364  cd Des*
+  365  ls
+  366  sudo dpkg -i team*
+  367  apt-get install -f
+  368  sudo apt-get install -f
+  369  roscore
+  370  roslaunch rosaria.launch
+  371  roslaunch mobilesim.launch
+  372  $ roslaunch pioneer_utils pioneer3at_gazebo_world.launch
+  373  roslaunch pioneer_utils pioneer3at_gazebo_world.launch
+  374  catkin_init_workspace catkin_ws
+  375  git clone --recursive https://github.com/danimtb/pioneer3at_ETSIDI.git .
+  376  git clone --recursive https://github.com/danimtb/pioneer3at_ETSIDI.git 
+  377  d ~/catkin_ws
+  378  cd ~/catkin_ws
+  379  rosdep install rosaria
+  380  rosdep install freenect_launch
+  381  catkin_make
+  382  sudo apt-get install ros-kinetic-navigation
+  383  apt-get -f install
+  384  sudo apt-get -f install
+  385  rosdep install freenect_launch
+  386  cd
+  387  clear
+  388  cd ros-ws-kinetic
+  389  cd ros-ws-kinetic/
+  390  sh
+  391  mkdir ros-ws-kinetic
+  392  cd ros-ws-kinetic/
+  393  . devel/setup.bash
+  394  .devel/setup.bash
+  395  . devel/setup.bash
+  396  clear
+  397  history > qwop
+  398  cd
+  399  clear
+  400  history > qwop
+  401  MobileSim
+  402  cd Des*
+  403  ls
+  404  sudo dpkg -i lib*
+  405  sudo dpkg -i mob*
+  406  cd ~/catkin_ws/src
+  407  git clone https://github.com/amor-ros-pkg/rosaria.git
+  408  cd ~/catkin_ws
+  409  catkin_make
+  410  source ~/catkin_ws/devel/setup.bash
+  411  roscore
+  412  rosrun tf static_transform_publisher 0.0 0.0 0.0 0.0 0.0 0.0 map sonar 100
+  413  apt-get
+  414  apt-get purge
+  415  sudo apt-get purge
+  416  sudo apt-get -f purge
+  417  sudo apt-get remove
+  418  sudo apt-get -f remove
+  419  killall ros
+  420  kill ros
+  421  rosrun launch.mobilesim
+  422  rosrun rviz rviz
+  423  sudo apt-get install -f
+  424  sudo apt-get --purge remove libaria
+  425  sudo dpkg --configure -a
+  426  sudo apt-get -f install
+  427  sudo dpkg -i --force-overwrite /var/cache/apt/archives/libaria*
+  428  cd
+  429  cd Des*
+  430  ls
+  431  sudo dpkg -i libsdl*
+  432  roscore
+  433  rosrun
+  434  roscore
+  435  sudo apt-get --purge remove ros
+  436  sudo dpkg -i --force-overwrite /var/cache/apt/archives/libcupsys2-dev_1.1.23-3_i386.deb
+  437  sudo dpkg --configure -a
+  438  cd ~/catkin_ws/src
+  439  git clone https://github.com/JenJenChung/pioneer_gazebo_ros.git
+  440  git clone https://github.com/JenJenChung/pioneer_2dnav.git
+  441  cd ~/catkin_ws
+  442  catkin_make
+  443  cd
+  444  clear
+  445  cd ~/catkin_ws/src/pioneer_gazebo_ros
+  446  ./run\_pioneer\_gazebo
+  447  cd
+  448  clear
+  449  sudo apt-get install ros-kinetic-gazebo-ros-pkgs
+  450  roscore & rosrun gazebo_ros gazebo
+  451  rostopic list
+  452  cd ~/catkin_ws/src
+  453  catkin_init_workspace
+  454  cd~/catkin_ws
+  455  cd ..
+  456  catkin_make
+  457  echo “source /home/alexander/catkin_ws/devel/setup.bash” >> ~/.bashrc
+  458  source ~/.bashrc
+  459  echo “source/home/alexander/catkin_ws/devel/setup.bash” >> ~/.bashrc
+  460  source ~/.bashrc
+  461  source~/.bashrc
+  462  source ~/.bashrc
+  463  echo $ROS_PACKAGE_PATH
+  464  sudo apt-get install ros-kinetic-navigation ros-kinetic-slam-gmapping ros-kinetic-ros-control ros-kinetic-ros-controllers ros-kinetic-rviz
+  465  sudo apt-get install ros-kinetic navigation
+  466  sudo apt-get install ros-kinetic-navigation
+  467  sudo apt-get install ros-kinetic-map-server
+  468  cd ~/catkin_ws/src/pioneer_gazebo_ros
+  469  ./run\_pioneer\_gazebo
+  470  clear
+  471  cd
+  472  clear
+  473  cd Des*
+  474  ls
+  475  sudo dpkg -i libsdl1*
+  476  sudo apt-get update
+  477  sudo apt-get upgrade
+  478  sudo apt-get -f upgrade
+  479  sudo apt-get
+  480  sudo apt-get update
+  481  cd ~/catkin_ws/src/pioneer_gazebo_ros
+  482  ./run\_pioneer\_gazebo
+  483  clear
+  484  sudo apt-get install ros-kinetic-p2os-driver ros-kinetic-p2os-teleop ros-kinetic-p2os-launch ros-kinetic-p2os-urdf
+  485  clear
+  486  cd ~/catkin_ws/src
+  487  git clone https://github.com/MobileRobots/amr-ros-config
+  488  clear
+  489  git clone https://github.com/bsb808/nre_p3at
+  490  roscore
+  491  rosparam set joy_node/dev "/dev/input/js1"
+  492  rosrun joy joy_node
+  493  cd ~/catkin_ws/src
+  494  clear
+  495  git clone https://github.com/bsb808/nre_joy.git
+  496  cd ~/catkin_ws
+  497  rosdep update
+  498  rosdep install nre_joy
+  499  catkin_make
+  500  source ~/catkin_ws/devel/setup.bash 
+  501  clear
+  502  roscore
+  503  roslaunch nre_p3at p3at.gazebo.launch
+  504  cd
+  505  git clone https://github.com/bsb808/nre_p3at.git
+  506  rostopic echo joy
+  507  rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/sim_p3at/cmd_vel
+  508  sudo apt-get install ros-melodic-teleop-twist-keyboard
+  509  sudo apt-get install ros-kinetic-teleop-twist-keyboard
+  510  rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/sim_p3at/cmd_vel
+  511  roslaunch nre_joy teleop_ugv_joy_p3at.launch
+  512  sudo apt-get install ros-kinetic-joy
+  513  ls /dev/input
+  514  sudo jtest /dev/input/js0
+  515  sudo jstest /dev/input/js0
+  516  sudo jstest /dev/input/js1
+  517  ls -l /dev/input/js1
+  518  udo chmod a+rw /dev/input/js1
+  519  sudo chmod a+rw /dev/input/js1
+  520  ls -l /dev/input/js1
+  521  roslaunch nre_joy teleop_ugv_joy_p3at.launch
+  522  rosrun nre_joy teleop_ugv_joy 
+  523  rosdep install nre_joy
+  524  catkin_make
+  525  clear
+  526  cd ~/catkin_ws/src
+  527  git clone https://github.com/bsb808/nre_joy.git
+  528  cd ~/catkin_ws
+  529  rosdep update
+  530  source ~/catkin_ws/devel/setup.bash 
+  531  rosrun nre_joy teleop_ugv_joy 
+  532  source ~/catkin_ws/devel/setup.bash 
+  533  rosrun nre_joy teleop_ugv_joy 
+  534  source ~/catkin_ws/devel/setup.bash 
+  535  rosdep update
+  536  rosrun nre_joy teleop_ugv_joy 
+  537  rosrun nre_joy teleop_ugv_joy 
+  538  source ~/catkin_ws/devel/setup.bash 
+  539  rosrun nre_joy teleop_ugv_joy 
+  540  cd ~/catkin_ws/src
+  541  git clone https://github.com/bsb808/nre_joy.git
+  542  rosdep update
+  543  rosdep install nre_joy
+  544  catkin_make
+  545  cd ~/catkin_ws/src
+  546  clear
+  547  cd ~/catkin_ws
+  548  catkin_make
+  549  source ~/catkin_ws/devel/setup.bash 
+  550  rosrun nre_joy teleop_ugv_joy 
+  551  history > comandos
